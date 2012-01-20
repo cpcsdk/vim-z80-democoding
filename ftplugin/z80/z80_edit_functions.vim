@@ -9,6 +9,7 @@
 
 " Split a line with several commands in several independent lines
 " (allow to easily convert files from one assembly language to another one)
+" Mainly written to convert sjamsplus source to vasm source
 function! Z80SplitInstructionsInSeveralLines() range
 
     let lnum          = a:firstline
@@ -18,7 +19,8 @@ function! Z80SplitInstructionsInSeveralLines() range
         let s:line = getline(lnum + s:linecounter)
 
         " Works only on right lines
-        if  -1 == match(s:line, '.*:.*')
+		" and when : is not after a comment
+        if  -1 == match(s:line, '.*:.*')  ||  -1 != match(s:line, '^\s*[^:]*;\|\*')
             let lnum = lnum + 1
             continue
         endif
