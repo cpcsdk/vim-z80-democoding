@@ -137,10 +137,16 @@ function! Z80Sjamsplus2vasm()
 
 	" Remove .nb presentation for loops
 	try
-		exec "%s/^\\(\\s*\\)\\.\\(\\d\\)\\s*\\(.*\\)/\\1repeat \\2 ;Automatic conversion {{{\\r\\1\\3\\r\\1endrepeat ;}}}/  "
+		exec "%s/^\\(\\s*\\)\\.\\(\\d\\)\\s*\\(.*\\)/\\1repeat \\2 ;Automatic conversion {{{\\r\\1\\3\\r\\1endr ;}}}/  "
 	catch
 	endtry
 
+
+	" Replace sub notation for 16 bits operation (does not exist!)
+	try
+		exec "%s/sub\\(\\s\\+..\\s*,\\)/sbc\\1/"
+	catch
+	endtry
 endfunction
 
 " }}}
