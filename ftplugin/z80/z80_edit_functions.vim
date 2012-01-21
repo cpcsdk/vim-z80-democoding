@@ -123,8 +123,15 @@ function! Z80Sjamsplus2vasm()
 		exec "%s/\\(.*[^e]\\)dup\\(\\s*.*\\)/\\1repeat\\2/"
 	catch
 	endtry
+	" todo use endrepeat when corrected
 	try
-		exec "%s/\\(.*\\)edup\\(\\s*.*\\)/\\1endrepeat\\2/"
+		exec "%s/\\(.*\\)edup\\(\\s*.*\\)/\\1endr\\2/"
+	catch
+	endtry
+
+	" Remove bracket notation for ix/iy
+	try
+		exec "%s/\\[\\(i[xy]\\)\\(*\\)\\]/(\1\2)/"
 	catch
 	endtry
 
