@@ -23,7 +23,7 @@ function! Z80SplitInstructionsInSeveralLines() range
 
         " Works only on right lines
 		" and when : is not after a comment
-        if  -1 == match(s:line, '.*:.*')  ||  -1 != match(s:line, '^\s*[^:]*;\|\*')
+        if  -1 == match(s:line, '.*:.*')  ||  -1 != match(s:line, '^\s*[^:]*;\|\*') || -1 != match(s:line, '^\S*:')
             let lnum = lnum + 1
             continue
         endif
@@ -131,7 +131,13 @@ function! Z80Sjamsplus2vasm()
 
 	" Remove bracket notation for ix/iy
 	try
-		exec "%s/\\[\\(i[xy]\\)\\(*\\)\\]/(\1\2)/"
+		exec "%s/\\[\\(i[xy]\\)\\(.*\\)\\]/(\\1\\2)/"
+	catch
+	endtry
+
+	" Remove .nb presentation for loops
+	try
+		exec "%s/^\\(\\s*\\)\\.\\(\\d\\)\\s*\\(.*\\)/\\1repeat \\2 ;Automatic conversion {{{\\r\\1\\3\\r\\1endrepeat ;}}}/  "
 	catch
 	endtry
 
