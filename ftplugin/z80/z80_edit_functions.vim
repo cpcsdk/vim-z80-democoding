@@ -61,6 +61,7 @@ endfunction
 
 
 " Remove the comments in C format and replace them by ;
+" TODO debug: I think stars inside a line are considered as a comment
 function Z80TranslateCComments()
 	" /**
 	try 
@@ -157,6 +158,12 @@ function! Z80Sjamsplus2vasm()
 		exec "%s/&\\([0-9a-fA-F]\\+\\)/0x\\1/g"
 	catch
 	endtry	
+
+	" Replace not by !
+	try
+		exec "%s/\\(\\s\\+\\)not\\(\\s\\+\\)/\\1!\\2/ "
+	catch
+	endtry
 
 endfunction
 
