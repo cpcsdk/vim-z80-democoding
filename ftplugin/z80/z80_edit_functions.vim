@@ -147,6 +147,17 @@ function! Z80Sjamsplus2vasm()
 		exec "%s/sub\\(\\s\\+..\\s*,\\)/sbc\\1/"
 	catch
 	endtry
+
+	" Correction hexadecimal notation
+	try
+		exec "%s/\\#/0x/"
+	catch
+	endtry	
+	try
+		exec "%s/&\\([0-9a-fA-F]\\+\\)/0x\\1/g"
+	catch
+	endtry	
+
 endfunction
 
 " }}}
