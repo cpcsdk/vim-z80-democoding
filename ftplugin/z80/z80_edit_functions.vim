@@ -84,7 +84,7 @@ function Z80TranslateCComments()
 
 	" * "
 	try 
-	exec "%s/\\(\\s*\\)\\*/\\1;/"
+	exec "%s/^\\(\\s*\\)\\*/\\1;/"
 	catch
 	endtry
 
