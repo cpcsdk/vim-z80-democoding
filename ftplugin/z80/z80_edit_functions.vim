@@ -165,6 +165,12 @@ function! Z80Sjamsplus2vasm()
 	catch
 	endtry
 
+    " Correct macro call
+    "TODO correct macro parameters
+    try
+        exec "%s/\\(MACRO\\s\\+\\)\\(\\S\\+\\s\\+\\)\\(\\S\\+\\)/\\1\\2,\\3/i"
+    catch
+    endtry
 endfunction
 
 " }}}
