@@ -138,7 +138,7 @@ function! Z80Sjamsplus2vasm()
 
 	" Remove .nb presentation for loops
 	try
-		exec "%s/^\\(\\s*\\)\\.\\(\\d\\)\\s*\\(.*\\)/\\1repeat \\2 ;Automatic conversion {{{\\r\\1\\3\\r\\1endr ;}}}/  "
+		exec "%s/^\\(\\s*\\)\\.\\(\\d\\+\\)\\s*\\(.*\\)/\\1repeat \\2 ;Automatic conversion {{{\\r\\1\\3\\r\\1endr ;}}}/  "
 	catch
 	endtry
 
