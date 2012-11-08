@@ -81,6 +81,24 @@ syn keyword z80PreProc OUTPUT PAGE PHASE REPT SAVEBIN SAVEHOB SAVESNA SAVETRD SH
 syn keyword z80PreProc SIZE SLOT TEXTAREA UNPHASE WORD IF IFN IFDEF IFNDEF ELSE ENDIF
 syn keyword z80PreProc MACRO ENDM D24 
 
+" vasm directives
+syn keyword z80PreProc abyte addr align asc ascii asciiz assert
+syn keyword z80PreProc binary blk blkw byt byte 
+syn keyword z80PreProc data db dc defb defc defl defp defm defw dephs dephase ds dsb dsw 
+syn keyword z80PreProc end endif el else endm endmac endmacro endr endrepeat enrep extern even
+syn keyword z80PreProc fail fill 
+syn keyword z80PreProc global
+syn keyword z80PreProc if ifdef ifndef ifeq ifne ifgt iflt ifle incbin incdir include
+syn keyword z80PreProc list local 
+syn keyword z80PreProc mac macro mdat
+syn keyword z80PreProc nolist 
+syn keyword z80PreProc org
+syn keyword z80PreProc phase
+syn keyword z80PreProc rept repeat reserve rend rorg
+syn keyword z80PreProc section set spc string
+syn keyword z80PreProc text
+syn keyword z80PreProc weak wor wrd word 
+syn keyword z80PreProc xdef xlib xref 
 
 " Strings
 syn region z80String start=/"/ skip=/\\"/ end=/"/ oneline
