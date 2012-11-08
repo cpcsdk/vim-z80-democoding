@@ -129,11 +129,17 @@ syn match z80Reg "(de)"
 syn match z80Reg "(hl)"
 syn match z80Reg "(sp)"
 
+" Todo
+syn keyword	cTodo		contained TODO FIXME XXX
+
+
 " Comments
-syn match z80Comment ";.*$"
+syn match z80Comment ";.*$" contains=cTodo
 syn match z80Comment "^\*$"
 syn region z80Comment2 start="\<\.endasm\>" skip="\n" end="\<\.asm\>" keepend contains=z80Comment,z80Comment2 
-syn region z80Comment start="\/\*" end="\*\/"
+syn region z80Comment start="\/\*" end="\*\/" contains=cTodo
+
+hi def link cTodo		Todo
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
@@ -157,6 +163,7 @@ HiLink z80PreProc PreProc
 HiLink z80Number Number
 HiLink z80String String
 HiLink z80Other Operator
+HiLink z80Todo Todo
 
 delcommand HiLink
 endif
