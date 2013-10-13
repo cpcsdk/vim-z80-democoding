@@ -94,5 +94,7 @@ function! VASMExpandMacroOfCurrentLine()
 
     " Replace current string by the new content
     call setpos('.', l:cursor)
-    call setline(l:linenumber, l:str)
+    call append(l:linenumber, l:str)
+    :d
 endfunction
+
