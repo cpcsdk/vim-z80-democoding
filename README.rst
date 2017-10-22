@@ -18,7 +18,18 @@ Anyway, it is public and can be interesting for other people.
 Installation
 ============
 
+Manual installation
+~~~~~~~~~~~~~~~~~~~
+
 Copy the ftdetect, ftplugin and syntax directories in your .vim directory (~/.vim on Linux)
+
+
+Automated installation with vim-plug
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+```vim
+Plug 'cpcsdk/vim-z80-democoding'
+```
 
 Usage
 =====
