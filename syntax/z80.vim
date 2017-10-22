@@ -83,19 +83,19 @@ syn keyword z80PreProc MACRO ENDM D24
 
 " vasm directives
 syn keyword z80PreProc abyte addr align asc ascii asciiz assert
-syn keyword z80PreProc binary blk blkw byt byte 
-syn keyword z80PreProc data db dc defb defc defl defp defm defw dephs dephase ds dsb dsw 
-syn keyword z80PreProc end endif el else endm endmac endmacro endr endrepeat enrep extern even
-syn keyword z80PreProc fail fill 
+syn keyword z80PreProc binary blk blkw bsz byt byte
+syn keyword z80PreProc data db dc defb defc defl defp defm defw defs dephase ds dsb dsw dw
+syn keyword z80PreProc end endif else el endm endmac endmacro endr endrepeat endrep endstruct eq extern even
+syn keyword z80PreProc fail fill fcb fcc fdb
 syn keyword z80PreProc global
-syn keyword z80PreProc if ifdef ifndef ifeq ifne ifgt iflt ifle incbin incdir include
+syn keyword z80PreProc if ifdef ifndef ifd ifeq ifne ifgt iflt ifle ifused incbin incdir include
 syn keyword z80PreProc list local 
 syn keyword z80PreProc mac macro mdat
 syn keyword z80PreProc nolist 
 syn keyword z80PreProc org
 syn keyword z80PreProc phase
 syn keyword z80PreProc rept repeat reserve rend rorg
-syn keyword z80PreProc section set spc string
+syn keyword z80PreProc section set spc string struct structure
 syn keyword z80PreProc text
 syn keyword z80PreProc weak wor wrd word 
 syn keyword z80PreProc xdef xlib xref 
@@ -107,12 +107,12 @@ syn region z80String start=/'/ end=/'/ oneline
 " Labels
 syn match z80Lbl "[A-Z_.?][A-Z_.?0-9]*:\="
 syn region z80Lbl2 start="(" end=")" oneline contains=z80Number,z80Lbl,z80Lbl2,z80Other
+syn match z80Lbl3 "\<\$\>"
 
 " Operators
 syn match z80Other "[~+\-*/%^&=!<>]"
 
 " Numbers
-syn match z80Number "\<\$\>"
 syn match z80Number "\<[01]\+b\>"
 syn match z80Number "\<\d\x*h\>"
 syn match z80Number "\<\d\+\>"
@@ -155,6 +155,7 @@ endif
 HiLink z80Reg Constant
 HiLink z80Lbl Type
 HiLink z80Lbl2 Type
+HiLink z80Lbl3 Type
 HiLink z80Comment Comment
 HiLink z80Comment2 Comment
 HiLink z80Inst Statement
